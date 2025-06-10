@@ -1,0 +1,16 @@
+[project]
+name = "terramind-contest"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "diffusers==0.30.0",
+    "gdown>=5.2.0",
+    "jupyter>=1.1.1",
+    "tensorboard>=2.19.0",
+    "terratorch",
+]
+
+[tool.uv.sources]
+terratorch = { git = "https://github.com/IBM/terratorch.git" }
