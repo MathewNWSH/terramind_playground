@@ -21,8 +21,9 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 COPY --from=ghcr.io/astral-sh/uv /uv /uvx /bin/
 ENV UV_FROZEN=1
 ENV UV_LINK_MODE=copy
+ENV UV_SKIP_WHEEL_FILENAME_CHECK=1
 WORKDIR /app
-COPY uv.lock pyproject.toml tool ./
+COPY uv.lock pyproject.toml scripts ./
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --no-dev --no-editable --no-install-project
