@@ -35,7 +35,9 @@ jobs:
       - name: prepare image name (lowercase)
         id: img
         run: |
-          IMAGE="ghcr.io/${{ github.repository_owner }}/my-app"
+          OWNER="${{ github.repository_owner }}"
+          REPO="${GITHUB_REPOSITORY#*/}"
+          IMAGE="ghcr.io/${OWNER}/${REPO}"
           echo "name=$(echo "$IMAGE" | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
 
       - name: build and push
