@@ -46,6 +46,5 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     python3.13
 
 WORKDIR /app
-COPY conf.env .
 COPY --from=builder /app/.venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
